@@ -41,21 +41,20 @@
     <!--/container-->
 </section>
 
-<section>
-    <div class="container-fluid v-center">
+<section class>
+    <div class="container">
+      <%@destinations.each_slice(4) do |destination_array|%>
         <div class="row">
-          <%= %>
-            <div class="col-sm-2 col-sm-offset-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-
-                    </a>
+          <% destination_array.each do |destination| %>
+            <div class="col-sm-3 col-xs-3">
+              <div class="text-center">
+                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), destination.website_url, target: "blank") %>
                     <h3 class="text-center"></h3>
-                </div>
+              </div>
             </div>
-          <% %>
-
+          <%end%>
         </div>
+      <%end%>
         <!--/row-->
     </div>
 </section>
