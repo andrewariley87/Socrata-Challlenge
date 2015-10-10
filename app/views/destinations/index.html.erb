@@ -1,10 +1,10 @@
 <section class="container-fluid" id="section1">
     <div class="v-center">
-        <h1 class="text-center">Just One Page</h1>
-        <h2 class="text-center lato animate slideInDown">Change It To Say <b>Something</b> Unique</h2>
+        <h1 class="text-center">Discover Indiana</h1>
+        <h2 class="text-center lato animate slideInDown">Explore Indiana<b> Without</b> Boundaries</h2>
         <p class="text-center">
             <br>
-            <a href="#" class="btn btn-danger btn-lg btn-huge lato" data-toggle="modal" data-target="#myModal">Get Free Membership</a>
+            <a href="#" class="btn btn-danger btn-lg btn-huge lato" data-toggle="modal" data-target="#myModal">Lets Get Started</a>
         </p>
     </div>
     <a href="#section2">
@@ -26,8 +26,9 @@
      </select>
      <b>End: </b>
      <select id="end" onchange="calcRoute();">
-       <option value="chicago, il">Chicago</option>
-       <option value="st louis, mo">St Louis</option>
+       <% @destinations.each do |dest| %>
+       <option value="<%= dest.location %>"><%= dest.site %></option>
+       <% end %>
      </select>
      </div>
      <div id="map"></div>
@@ -43,72 +44,17 @@
 <section>
     <div class="container-fluid v-center">
         <div class="row">
+          <%= %>
             <div class="col-sm-2 col-sm-offset-2 col-xs-6">
                 <div class="text-center">
                     <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center">Hellloooooo</h3>
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
+
                     </a>
                     <h3 class="text-center"></h3>
                 </div>
             </div>
-            <div class="col-sm-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center"></h3>
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center"></h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center"></h3>
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center"></h3>
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center"></h3>
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-6">
-                <div class="text-center">
-                    <a href="">
-                        <img style="width:100px;" class="img-circle img-responsive img-thumbnail" src="//placehold.it/100/444">
-                    </a>
-                    <h3 class="text-center"></h3>
-                </div>
-            </div>
+          <% %>
+
         </div>
         <!--/row-->
     </div>
