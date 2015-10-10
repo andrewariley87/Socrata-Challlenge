@@ -96,17 +96,25 @@
     </div>
 </footer>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1ROvaziiyi5rracIijPXyJquzpybA3Nc&signed_in=true&callback=initMap" async defer></script>
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
     <script>
     function initMap() {
+      var myLatLng = {lat: 40.363, lng: -86.1044};
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
-        center: {lat: 41.85, lng: -87.65}
+        scrollwheel: false,
+        center: {lat: 39.7910, lng: -86.1480}
       });
       directionsDisplay.setMap(map);
+
+      var marker = new google.maps.Marker({
+        map: map,
+        position: myLatLng,
+        title: 'Hello World!'
+      });
 
       var onChangeHandler = function() {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -130,6 +138,8 @@
     }
 
     </script>
+
+
 
 
 
