@@ -1,19 +1,29 @@
-class DestinationGrabber
 require 'net/http'
 require 'open-uri'
 require 'json'
 
-def destination_grab
+class DestinationGrabber
 
-  uri = URI.parse('https://socratadata.iot.in.gov/resource/6v98-qjgv.json')
+  def destination_grab
 
-  response = Net::HTTP.get_response(uri)
+    uri = URI.parse('https://communities.socrata.com/resource/26hz-f9fq.json?$where=location_1 is not null and picture is not null')
 
-  data = JSON.parse(response.body)
+    response = Net::HTTP.get_response(uri)
 
-  data.each do |info|
+    data = JSON.parse(response.body)
+    puts data.inspect
+    data.each do |info|
 
-    Destination.create!()
-
+      Destination.create!(activities: info["activities"],
+                          location: info["location"],
+                          latitude: info["location_1"]["coordinates"][0],
+                          longitude: info["location_1"]["coordinates"][1],
+                          phone: info["phone"],
+                          site: info["site"],
+                          picture_url: info["picture"],
+                          website_url: info["website"]
+      )
+    end
+  end
 
 end
