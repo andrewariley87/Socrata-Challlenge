@@ -62,6 +62,18 @@
 </section>
 
 <section class>
+  <ul class="clearfix list-unstyled">
+  <% if params[:search_destination] %>
+    <li><h1 class="text-center"> Listing Search Results for <%=params[:search_destination] %></h1></li>
+  <% else %>
+    <li><h1 class="text-center">Fun Around Indiana</h1></li>
+  <% end %>
+<li class="search_bar"><%= form_tag destinations_path, :method => :get, class: "form-inline" do %>
+<%= text_field_tag :search_destination, params[:search_destination], placeholder: 'Search for an Activity', class: "form-control_bills", :autocomplete => :off%>
+<%= submit_tag "Search", class: "btn-xs btn-danger search-bills" %></li>
+<% end %>
+</ul>
+<br>
     <div class="container">
       <%@destinations.each_slice(4) do |destination_array|%>
         <div class="row">

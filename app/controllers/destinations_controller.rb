@@ -4,7 +4,11 @@ class DestinationsController < ApplicationController
   # GET /destinations
   # GET /destinations.json
   def index
+    if params[:search_destination]
+      @destinations = Destination.search_by_info(params[:search_destination])
+    else
     @destinations = Destination.all
+    end
   end
 
   # GET /destinations/1
