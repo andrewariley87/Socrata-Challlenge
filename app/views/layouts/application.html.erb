@@ -13,6 +13,7 @@
 
   <style>
   #map {
+    float
     width: 100%;
     height: 500px;
     background-color: #CCC;
@@ -30,20 +31,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand text-danger" href="#">UncoverIndiana</a>
+          <a class="navbar-brand text-danger" href="#">DiscoverIndiana</a>
       </div>
       <div class="navbar-collapse collapse" id="navbar-collapsible">
           <ul class="nav navbar-nav navbar-left">
-              <li><a href="#section1">Start</a></li>
-              <li><a href="#section2">Next</a></li>
-              <li><a href="#section3">Then</a></li>
-              <li><a href="#section4">Form</a></li>
-              <li><a href="#section5">More</a></li>
-              <li><a href="#section6">Last</a></li>
+              <li><a href="#section1">Home</a></li>
+              <li><a href="#section2">Discover</a></li>
+              <li><a href="#section3">Locate</a></li>
+              <li><a href="#section4">Newsletter</a></li>
               <li>&nbsp;</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-heart-o fa-lg"></i></a></li>
+              <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-car fa-lg"></i></a></li>
           </ul>
       </div>
   </div>
@@ -92,45 +91,44 @@
             </div>
         </div>
         <!--/row-->
-        <p class="text-right">©2015</p>
+        <p class="text-right">DiscoverIndiana ©2015</p>
     </div>
 </footer>
 
+<div class="scroll-up">
+	<a href="#"><i class="fa fa-angle-up"></i></a>
+</div>
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
-    function initMap() {
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
-        center: {lat: 41.85, lng: -87.65}
-      });
-      directionsDisplay.setMap(map);
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="text-center"><img src="//placehold.it/110" class="img-circle"><br>Login</h2>
+            </div>
+            <div class="modal-body row">
+                <h6 class="text-center">COMPLETE THESE FIELDS TO SIGN UP</h6>
+                <form class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-lg" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-danger btn-lg btn-block">Sign In</button>
+                        <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <h6 class="text-center"><a href="">Privacy is important to us. Click here to read why.</a></h6>
+            </div>
+        </div>
+    </div>
+</div>
 
-      var onChangeHandler = function() {
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-      };
-      document.getElementById('start').addEventListener('change', onChangeHandler);
-      document.getElementById('end').addEventListener('change', onChangeHandler);
-    }
-
-    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-      directionsService.route({
-        origin: document.getElementById('start').value,
-        destination: document.getElementById('end').value,
-        travelMode: google.maps.TravelMode.DRIVING
-      }, function(response, status) {
-        if (status === google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-    }
-
-    </script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS'] %>&signed_in=true&callback=initMap" async defer></script>
 
 
 </body>

@@ -5,6 +5,9 @@ class DestinationsController < ApplicationController
   # GET /destinations.json
   def index
     @destinations = Destination.all
+    url = 'https://maps.googleapis.com/maps/api/js?key='
+    key = ENV['GOOGLE_MAPS']
+    @endpoint = url + key
   end
 
   # GET /destinations/1
@@ -62,6 +65,12 @@ class DestinationsController < ApplicationController
   end
 
   private
+
+    def maps
+      url = 'https://maps.googleapis.com/maps/api/js?key='
+      key = ENV['GOOGLE_MAPS']
+      @endpoint = url + key
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_destination
       @destination = Destination.find(params[:id])
