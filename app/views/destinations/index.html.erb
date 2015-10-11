@@ -1,140 +1,144 @@
 <section class="container-fluid" id="section1">
-    <div class="v-center">
-        <h1 class="text-center">Discover Indiana</h1>
-        <h2 class="text-center lato animate slideInDown">Explore Indiana<b> Without</b> Boundaries</h2>
-        <p class="text-center">
-            <br>
-            <a href="#" class="btn btn-danger btn-lg btn-huge lato" data-toggle="modal" data-target="#myModal">Lets Get Started</a>
-        </p>
+  <div class="v-center">
+    <h1 class="text-center">Discover Indiana</h1>
+    <h2 class="text-center lato animate slideInDown">Explore Indiana
+      <b>
+        Without</b>
+      Boundaries</h2>
+    <p class="text-center">
+      <br>
+      <a class="btn btn-danger btn-lg btn-huge lato" data-target="#myModal" data-toggle="modal" href="#">Lets Get Started</a>
+    </p>
+  </div>
+  <a href="#section2">
+    <div class="scroll-down bounceInDown animated">
+      <span>
+        <i class="fa fa-angle-down fa-2x"></i>
+      </span>
     </div>
-    <a href="#section2">
-		<div class="scroll-down bounceInDown animated">
-            <span>
-                <i class="fa fa-angle-down fa-2x"></i>
-            </span>
-		</div>
-        </a>
+  </a>
 </section>
 
-
 <section class="container-fluid" id="section2">
-    <div class="container center">
-        <div class="row">
-          <div id="floating-panel">
-     <b>Start: </b>
-     <select id="start" onchange="calcRoute();">
-       <option value="fishers, in">Fishers</option>
-     </select>
-     <b>End: </b>
-     <select id="end" onchange="calcRoute();">
-       <% @destinations.each do |dest| %>
-       <option value="<%= dest.longitude %>, <%= dest.latitude %>"><%= dest.site %></option>
-       <% end %>
-     </select>
-     </div>
-     <!-- <div id="right-panel"></div> -->
+  <div class="container center">
+    <div class="row">
+      <div id="floating-panel">
+        <b>Start:
+        </b>
+        <select id="start" onchange="calcRoute();">
+          <option value="fishers, in">Fishers</option>
+        </select>
+        <b>End:
+        </b>
+        <select id="end" onchange="calcRoute();">
+          <% @destinations.each do |dest| %>
+          <option value="<%= dest.longitude %>, <%= dest.latitude %>"><%= dest.site %></option>
+          <% end %>
+        </select>
+      </div>
+<!-- <div id="right-panel"></div> -->
 
-     <div id="map"></div>
-        </div>
-        <!--/row-->
-        <div class="row">
-            <br>
-        </div>
+      <div id="map"></div>
     </div>
-    <!--/container-->
+<!--/row-->
+    <div class="row">
+      <br>
+    </div>
+  </div>
+<!--/container-->
 </section>
 
 <section class>
-    <div class="container">
-      <%@destinations.each_slice(4) do |destination_array|%>
-        <div class="row">
-          <% destination_array.each do |destination| %>
-            <div class="col-sm-3 col-xs-3">
-              <div class="text-center">
-                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), destination.website_url, target: "blank") %>
-                    <h3 class="text-center"></h3>
-              </div>
-            </div>
-          <%end%>
+  <div class="container">
+    <%@destinations.each_slice(4) do |destination_array| %>
+    <div class="row">
+      <% destination_array.each do |destination| %>
+      <div class="col-sm-3 col-xs-3">
+        <div class="text-center">
+          <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), destination.website_url, target: "blank") %>
+          <h3 class="text-center"></h3>
         </div>
+      </div>
       <%end%>
-        <!--/row-->
     </div>
+    <%end%>
+<!--/row-->
+  </div>
 </section>
 
 <section id="section4">
-    <div class="container v-center">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center">Sign up for our Newsletter</h1>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="row form-group">
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="">
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" id="middleName" name="firstName" placeholder="Middle Name" required="">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-5">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                    </div>
-                    <div class="col-sm-5">
-                        <input type="email" class="form-control" name="phone" placeholder="Phone" required="">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-10">
-                        <input type="homepage" class="form-control" placeholder="Website URL" required="">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-10">
-                        <button class="btn btn-default btn-lg pull-right">Submit</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 pull-right">
-                <address>
-              <strong>Discover Indiana LLC</strong><br>
-              Launch Fishers<br>
-              Fishers, IN 94107<br>
-              P: (317) 867-5309
-            </address>
-                <address>
-              <strong>Email Us</strong><br>
-              <a href="mailto:#">discover@corphack.com</a>
-            </address>
-            </div>
-        </div>
+  <div class="container v-center">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Sign up for our Newsletter</h1>
+        <hr>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <input class="form-control" id="firstName" name="firstName" placeholder="First Name" required="" type="text">
+          </div>
+          <div class="col-sm-3">
+            <input class="form-control" id="middleName" name="firstName" placeholder="Middle Name" required="" type="text">
+          </div>
+          <div class="col-sm-4">
+            <input class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="" type="text">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-5">
+            <input class="form-control" name="email" placeholder="Email" required="" type="email">
+          </div>
+          <div class="col-sm-5">
+            <input class="form-control" name="phone" placeholder="Phone" required="" type="email">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-10">
+            <input class="form-control" placeholder="Website URL" required="" type="homepage">
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-10">
+            <button class="btn btn-default btn-lg pull-right">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 pull-right">
+        <address>
+          <strong>Discover Indiana LLC</strong><br>
+          Launch Fishers<br>
+          Fishers, IN 94107<br>
+          P: (317) 867-5309
+        </address>
+        <address>
+          <strong>Email Us</strong><br>
+          <a href="mailto:#">discover@corphack.com</a>
+        </address>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="container-fluid" id="section7">
-    <div class="row">
-        <!--fontawesome icons-->
-        <div class="col-sm-1 col-sm-offset-3 col-xs-4 text-center">
-            <i class="fa fa-facebook fa-4x"></i>
-        </div>
-        <div class="col-sm-1 col-xs-4 text-center">
-            <i class="fa fa-pinterest fa-4x"></i>
-        </div>
-        <div class="col-sm-1 col-xs-4 text-center">
-            <i class="fa fa-google-plus fa-4x"></i>
-        </div>
-        <div class="col-sm-1 col-xs-4 text-center">
-            <i class="fa fa-twitter fa-4x"></i>
-        </div>
-        <div class="col-sm-1 col-xs-4 text-center">
-            <i class="fa fa-reddit fa-4x"></i>
-        </div>
+  <div class="row">
+<!--fontawesome icons-->
+    <div class="col-sm-1 col-sm-offset-3 col-xs-4 text-center">
+      <i class="fa fa-facebook fa-4x"></i>
     </div>
+    <div class="col-sm-1 col-xs-4 text-center">
+      <i class="fa fa-pinterest fa-4x"></i>
+    </div>
+    <div class="col-sm-1 col-xs-4 text-center">
+      <i class="fa fa-google-plus fa-4x"></i>
+    </div>
+    <div class="col-sm-1 col-xs-4 text-center">
+      <i class="fa fa-twitter fa-4x"></i>
+    </div>
+    <div class="col-sm-1 col-xs-4 text-center">
+      <i class="fa fa-reddit fa-4x"></i>
+    </div>
+  </div>
 </section>
