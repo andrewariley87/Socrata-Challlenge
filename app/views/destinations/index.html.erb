@@ -28,7 +28,7 @@
      <b>End: </b>
      <select id="end" onchange="calcRoute();">
        <% @destinations.each do |dest| %>
-       <option value="<%= dest.longitude %>, <%= dest.latitude %>"><%= dest.site %></option>
+       <option value="<%= dest.longitude.to_f %>, <%= dest.latitude.to_f %>"><%= dest.site %></option>
        <% end %>
      </select>
      </div>
@@ -62,8 +62,9 @@
         <div class="row">
           <% destination_array.each do |destination| %>
             <div class="col-sm-3 col-xs-3">
+              <%= render partial: 'show', :locals => {:destination => destination}%>
               <div class="text-center">
-                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), destination.website_url, target: "blank") %>
+                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), "#showdestination", "data-toggle" => "modal", "data-target" => "#showdestination#{destination.id}") %>
                     <h3 class="text-center"></h3>
               </div>
             </div>
