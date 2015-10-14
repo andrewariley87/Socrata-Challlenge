@@ -11,7 +11,6 @@ class DestinationsController < ApplicationController
     end
     url = 'https://maps.googleapis.com/maps/api/js?key='
     key = ENV['GOOGLE_MAPS']
-    @endpoint = url + key
   end
 
   # GET /destinations/1

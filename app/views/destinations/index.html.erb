@@ -17,29 +17,31 @@
 </section>
 
 
-<section class="container-fluid" id="section2">
-    <div class="container center">
-        <div class="row">
-          <div id="floating-panel">
-     <b>Start: </b>
-     <select id="start" onchange="calcRoute();">
-       <option value="fishers, in">Fishers</option>
-     </select>
-     <b>End: </b>
-     <select id="end" onchange="calcRoute();">
-       <% @destinations.each do |dest| %>
-       <option value="<%= dest.longitude %>, <%= dest.latitude %>"><%= dest.site %></option>
-       <% end %>
-     </select>
-     </div>
+<section class="container-fluid s2stuff" id="section2">
+    <div class="container center s2morestuff">
+      <div class="row">
+        <div id="floating-panel">
+          <b>Start: </b>
+          <select id="start" onchange="calcRoute();">
+            <option value="fishers, in">Fishers</option>
+          </select>
+          <b>End: </b>
+          <select id="end" onchange="calcRoute();">
+            <% @destinations.each do |dest| %>
+                <option value="<%= dest.longitude %>, <%= dest.latitude %>"><%= dest.site %></option>
+            <% end %>
+            </select>
+        </div>
      <!-- <div id="right-panel"></div> -->
 
-     <div id="map"></div>
-        </div>
+          <div class="MapSize"
+          id="map"></div>
+          <div id="right-panel">
+            
+          </div>
+
+      </div>
         <!--/row-->
-        <div class="row">
-            <br>
-        </div>
     </div>
     <!--/container-->
 </section>
