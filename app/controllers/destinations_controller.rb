@@ -1,6 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
-
+  respond_to :js
   # GET /destinations
   # GET /destinations.json
   def index
@@ -11,12 +11,12 @@ class DestinationsController < ApplicationController
     end
     url = 'https://maps.googleapis.com/maps/api/js?key='
     key = ENV['GOOGLE_MAPS']
-    @endpoint = url + key
   end
 
   # GET /destinations/1
   # GET /destinations/1.json
   def show
+    respond_with @destination
   end
 
   # GET /destinations/new
@@ -77,7 +77,7 @@ class DestinationsController < ApplicationController
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_destination
-      @destination = Destination.find(params[:id])
+      @destination = Destination.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
