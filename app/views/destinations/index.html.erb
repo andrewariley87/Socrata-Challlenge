@@ -20,50 +20,71 @@
 </section>
 
 <section class="container-fluid" id="section2">
+
+    <article>
+
+    </article>
+
   <div class="container center">
     <div class="row">
       <div id="floating-panel">
-        <b>Start:
-        </b>
-        <select id="start" onchange="calcRoute();">
-          <option value="fishers, in">Fishers</option>
-        </select>
-        <b>End:
-        </b>
+        <b>Start:</b> Your Current Location
+    
+
+        <div id="address" type="textbox" styel="line-height:normal" value="Your Location">
+          <b>Parks and Recreation Centers
+          </b>
+        </div>
+       <div id="submit"  styel="line-height:normal" value="Start" onchange="calcRoute();"></div>
+
         <select id="end" onchange="calcRoute();">
           <% @destinations.each do |dest| %>
           <option value="<%= dest.longitude %>, <%= dest.latitude %>"><%= dest.site %></option>
           <% end %>
         </select>
       </div>
-<!-- <div id="right-panel"></div> -->
 
-      <div id="map"></div>
+
+      <div class="col-xs-4" id="map"></div>
+      <div class="col-xs-4" id="right-panel"></div>
     </div>
-<!--/row-->
+
+
     <div class="row">
       <br>
     </div>
   </div>
-<!--/container-->
+
 </section>
 
 <section class>
-  <div class="container">
-    <%@destinations.each_slice(4) do |destination_array| %>
-    <div class="row">
-      <% destination_array.each do |destination| %>
-      <div class="col-sm-3 col-xs-3">
-        <div class="text-center">
-          <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), destination.website_url, target: "blank") %>
-          <h3 class="text-center"></h3>
+  <ul class="clearfix list-unstyled">
+  <% if params[:search_destination] %>
+    <li><h1 class="text-center"> Listing Search Results for <%=params[:search_destination] %></h1></li>
+  <% else %>
+    <li><h1 class="text-center">Fun Around Indiana</h1></li>
+  <% end %>
+<li class="search_bar"><%= form_tag destinations_path, :method => :get, class: "form-inline" do %>
+<%= text_field_tag :search_destination, params[:search_destination], placeholder: 'Search for an Activity', class: "form-control_bills", :autocomplete => :off%>
+<%= submit_tag "Search", class: "btn-xs btn-danger search-bills" %></li>
+<% end %>
+</ul>
+<br>
+    <div class="container">
+      <%@destinations.each_slice(4) do |destination_array|%>
+        <div class="row">
+          <% destination_array.each do |destination| %>
+            <div class="col-sm-3 col-xs-3">
+              <div class="text-center">
+                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), destination.website_url, target: "blank") %>
+                    <h3 class="text-center"></h3>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-      <%end%>
-    </div>
-    <%end%>
-<!--/row-->
-  </div>
+      <%  end %>
+
 </section>
 
 <section id="section4">
@@ -124,7 +145,8 @@
 
 <section class="container-fluid" id="section7">
   <div class="row">
-<!--fontawesome icons-->
+
+
     <div class="col-sm-1 col-sm-offset-3 col-xs-4 text-center">
       <i class="fa fa-facebook fa-4x"></i>
     </div>

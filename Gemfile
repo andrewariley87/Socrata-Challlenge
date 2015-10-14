@@ -12,8 +12,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
+gem 'pg_search'
 gem 'geocoder'
 gem 'figaro'
+gem 'jquery-easing-rails'
 
 
 group :development, :test do
