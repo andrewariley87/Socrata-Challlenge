@@ -46,7 +46,7 @@
     <!--/container-->
 </section>
 
-<section class>
+<section class="section3">
   <ul class="clearfix list-unstyled">
   <% if params[:search_destination] %>
     <li><h1 class="text-center"> Listing Search Results for <%=params[:search_destination] %></h1></li>
@@ -64,9 +64,9 @@
         <div class="row">
           <% destination_array.each do |destination| %>
             <div class="col-sm-3 col-xs-3">
-              <%= render partial: 'show', :locals => {:destination => destination}%>
               <div class="text-center">
-                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), "#showdestination", "data-toggle" => "modal", "data-target" => "#showdestination#{destination.id}") %>
+                <%= render partial: "show_destination", :locals => {:destination => destination}%>
+                <%= link_to(image_tag(destination.picture_url, class: "img-thumbnail"), "#", "data-toggle" => "modal", "data-target" => "#showdestination#{destination.id}") %>
                     <h3 class="text-center"></h3>
               </div>
             </div>
@@ -77,7 +77,7 @@
     </div>
 </section>
 
-<section id="section4">
+<!-- <section id="section4">
     <div class="container v-center">
         <div class="row">
             <div class="col-md-12">
@@ -131,7 +131,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="container-fluid" id="section7">
     <div class="row">
