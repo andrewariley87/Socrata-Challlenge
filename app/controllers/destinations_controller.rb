@@ -7,7 +7,7 @@ class DestinationsController < ApplicationController
     if params[:search_destination]
       @destinations = Destination.search_by_info(params[:search_destination])
     else
-    @destinations = Destination.all
+    @destinations = Destination.all.order('site ASC')
     end
     url = 'https://maps.googleapis.com/maps/api/js?key='
     key = ENV['GOOGLE_MAPS']

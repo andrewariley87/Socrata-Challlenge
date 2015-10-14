@@ -15,10 +15,12 @@ gem 'rails_12factor', group: :production
 gem 'pg_search'
 gem 'geocoder'
 gem 'figaro'
+gem 'jquery-easing-rails'
 gem 'responders', '~> 2.0'
 gem 'bootstrap_form'
 gem 'twitter', '~> 5.3.1'
 gem 'omniauth-twitter', '~> 1.0.1'
+
 
 group :development, :test do
   gem 'pry-byebug'
