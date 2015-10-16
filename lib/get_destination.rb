@@ -14,6 +14,7 @@ class DestinationGrabber
     puts data.inspect
     data.each do |info|
 
+
       Destination.create!(activities: info["activities"],
                           location: info["park_location"],
                           latitude: info["location_1"]["coordinates"][0],
@@ -21,7 +22,8 @@ class DestinationGrabber
                           phone: info["phone"],
                           site: info["dnr_location"],
                           picture_url: info["picture"],
-                          website_url: info["website"]
+                          website_url: info["website"],
+                          category: info["category"]
       )
     end
   end

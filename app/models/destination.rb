@@ -1,4 +1,15 @@
 class Destination < ActiveRecord::Base
-  include PgSearch
-  pg_search_scope :search_by_info, :against => [:activities]
+
+  def lodging
+    self.activities == nil ? self.activities = "lodging" : self.activities
+  end
+
+  def category_type
+    self.category == "NP" ? self.category = "Nature Preserve" : self.category
+  end
+
+  def self.search(search)
+    where("activities ILIKE ?", "%#{search}%")
+  end
+
 end

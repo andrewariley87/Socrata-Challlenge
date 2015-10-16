@@ -70,7 +70,7 @@ $('a[href*=#]:not([href=#])').click(function() {
       }
     }
 });
-   
+
 function initMap() {
   <% Destination.all.each_with_index do |dest, index| %>
   var myLatLng<%= index %> = {lat: <%= dest.longitude %>, lng: <%= dest.latitude %>};
@@ -117,7 +117,7 @@ function initMap() {
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
-      var image = 'assets/star-5.png';
+      // var image = 'assets/star-5.png';
       var marker = new google.maps.Marker({
         map: resultsMap,
         position: results[0].geometry.location,

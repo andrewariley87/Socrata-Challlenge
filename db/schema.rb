@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014170446) do
+ActiveRecord::Schema.define(version: 20151016141346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "destinations", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.text     "activities"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "activities",  default: "lodging"
     t.text     "location"
     t.string   "latitude"
     t.string   "longitude"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151014170446) do
     t.text     "site"
     t.text     "picture_url"
     t.text     "website_url"
+    t.string   "category"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

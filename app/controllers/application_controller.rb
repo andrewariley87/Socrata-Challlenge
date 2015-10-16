@@ -6,10 +6,14 @@ class ApplicationController < ActionController::Base
 
   def modal
     if params[:search_destination]
-      @destinations = Destination.search_by_info(params[:search_destination])
+      @destinations = Destination.search(params[:search_destination])
+      if @destinations.blank?
+        flash[:notice] = 'We were unable to locate your search results'
+        redirect_to :back
+      end
     else
     @destinations = Destination.all.order('site ASC')
     end
   end
-  
+
 end

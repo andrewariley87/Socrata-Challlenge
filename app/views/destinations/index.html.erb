@@ -19,7 +19,6 @@
   </a>
 </section>
 
-<<<<<<< HEAD
 <section class="container-fluid s2stuff" id="section2">
 
     <article>
@@ -64,7 +63,7 @@
   <% end %>
 <li class="search_bar"><%= form_tag destinations_path, :method => :get, class: "form-inline" do %>
 <%= text_field_tag :search_destination, params[:search_destination], placeholder: 'Search for an Activity', class: "form-control_bills", :autocomplete => :off%>
-<%= submit_tag "Search", class: "btn-xs btn-danger search-bills" %></li>
+<%= submit_tag "Search", :name => nil, class: "btn-xs btn-danger search-bills" %></li>
 <% end %>
 </ul>
 <br>
@@ -81,8 +80,8 @@
             </div>
           <% end %>
         </div>
-      </div>
-      <%  end %>
+      <% end %>
+    </div>
 
 </section>
 
