@@ -5,16 +5,15 @@ class DestinationsController < ApplicationController
   # GET /destinations.json
   def index
     if params[:search_destination]
-      @destinations = Destination.search(params[:search_destination])
-      if @destinations.blank?
-        flash[:notice] = 'We were unable to locate your search results'
-        redirect_to :back
+      if Destination.search(params[:search_destination]).blank?
+        @destinations = Destination.all
+        flash[:notice] = "There were no results for #{params[:search_destination]}"
+      else
+        @destinations = Destination.search(params[:search_destination])
       end
     else
-    @destinations = Destination.all.order('site ASC')
+      @destinations = Destination.all
     end
-    url = 'https://maps.googleapis.com/maps/api/js?key='
-    key = ENV['GOOGLE_MAPS']
   end
 
   # GET /destinations/1

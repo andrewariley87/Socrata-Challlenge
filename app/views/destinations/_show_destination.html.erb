@@ -8,7 +8,7 @@
       <div class="modal-body">
         <p><%= image_tag(destination.picture_url, class: "img-modal center-block") %></p>
         <p> <h3> <%= destination.category_type %> </h3> </p>
-        <p class="site-modal-info"> Activities: <%= destination.lodging %> </p>
+        <p class="site-modal-info"> Activities: <%= destination.activities %> </p>
         <p class ="site-modal-info"> <%= link_to "More Info on #{destination.site}", destination.website_url, target: :blank %> </p>
       </div>
       <div class="modal-footer">

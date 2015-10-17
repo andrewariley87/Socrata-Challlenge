@@ -14,8 +14,14 @@ class DestinationGrabber
     puts data.inspect
     data.each do |info|
 
+      if info["activities"].blank?
+        @activities = "Lodging"
+      else
+        @activities = info["activities"]
+      end
 
-      Destination.create!(activities: info["activities"],
+
+      Destination.create!(activities: @activities,
                           location: info["park_location"],
                           latitude: info["location_1"]["coordinates"][0],
                           longitude: info["location_1"]["coordinates"][1],
